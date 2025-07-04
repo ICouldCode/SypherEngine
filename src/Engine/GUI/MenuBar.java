@@ -75,13 +75,14 @@ public class MenuBar {
                 }
                 ImGui.endMenu();
             }
-            if (ImGui.beginMenu("Help")){
+            //AI assistant system (Improve later)
+            /*if (ImGui.beginMenu("Help")){
                 if(ImGui.menuItem("AI")){
                     enableAIMenu = !enableAIMenu;
                     Console.info("AI assistance enabled: " + enableAIMenu);
                 }
                 ImGui.endMenu();
-            }
+            }*/
             ImGui.endMenuBar();
         }
 
