@@ -1,0 +1,244 @@
+[
+  {
+    "Name": "Main_Camera",
+    "subObjects": [],
+    "componentList": [
+      {
+        "Type": "Transform",
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "isActive": true
+      },
+      {
+        "Type": "Camera2D",
+        "zoom": 1.0095692,
+        "nearPlane": -1.0,
+        "farPlane": 1.0,
+        "projection": {
+          "properties": 2,
+          "m00": 0.0015774518,
+          "m01": 0.0,
+          "m02": 0.0,
+          "m03": 0.0,
+          "m10": 0.0,
+          "m11": 0.002804359,
+          "m12": 0.0,
+          "m13": 0.0,
+          "m20": 0.0,
+          "m21": 0.0,
+          "m22": -1.0,
+          "m23": 0.0,
+          "m30": -0.0,
+          "m31": -0.0,
+          "m32": -0.0,
+          "m33": 1.0
+        },
+        "view": {
+          "properties": 18,
+          "m00": 1.0,
+          "m01": 0.0,
+          "m02": 0.0,
+          "m03": 0.0,
+          "m10": -0.0,
+          "m11": 1.0,
+          "m12": 0.0,
+          "m13": 0.0,
+          "m20": 0.0,
+          "m21": 0.0,
+          "m22": 1.0,
+          "m23": 0.0,
+          "m30": -0.0,
+          "m31": -0.0,
+          "m32": 0.0,
+          "m33": 1.0
+        },
+        "width": 1280.0,
+        "height": 720.0,
+        "isActive": true
+      },
+      {
+        "Type": "CameraControls",
+        "panSpeed": 0.40968,
+        "camera": {
+          "Type": "Camera2D",
+          "zoom": 1.0095692,
+          "nearPlane": -1.0,
+          "farPlane": 1.0,
+          "projection": {
+            "properties": 2,
+            "m00": 0.0015774518,
+            "m01": 0.0,
+            "m02": 0.0,
+            "m03": 0.0,
+            "m10": 0.0,
+            "m11": 0.002804359,
+            "m12": 0.0,
+            "m13": 0.0,
+            "m20": 0.0,
+            "m21": 0.0,
+            "m22": -1.0,
+            "m23": 0.0,
+            "m30": -0.0,
+            "m31": -0.0,
+            "m32": -0.0,
+            "m33": 1.0
+          },
+          "view": {
+            "properties": 18,
+            "m00": 1.0,
+            "m01": 0.0,
+            "m02": 0.0,
+            "m03": 0.0,
+            "m10": -0.0,
+            "m11": 1.0,
+            "m12": 0.0,
+            "m13": 0.0,
+            "m20": 0.0,
+            "m21": 0.0,
+            "m22": 1.0,
+            "m23": 0.0,
+            "m30": -0.0,
+            "m31": -0.0,
+            "m32": 0.0,
+            "m33": 1.0
+          },
+          "width": 1280.0,
+          "height": 720.0,
+          "isActive": true
+        },
+        "transform": {
+          "Type": "Transform",
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "isActive": true
+        },
+        "isActive": true
+      }
+    ],
+    "isActive": true
+  },
+  {
+    "Name": "Square",
+    "subObjects": [],
+    "componentList": [
+      {
+        "Type": "Transform",
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "isActive": true
+      },
+      {
+        "Type": "Render",
+        "vao": {
+          "vaoID": 1,
+          "vertexCount": 1572864,
+          "vbo": {
+            "vboID": 3
+          },
+          "layout": {
+            "elements": [
+              {
+                "type": 5126,
+                "count": 3,
+                "normalized": false
+              },
+              {
+                "type": 5126,
+                "count": 3,
+                "normalized": false
+              },
+              {
+                "type": 5126,
+                "count": 2,
+                "normalized": false
+              }
+            ],
+            "stride": 32,
+            "offset": 32
+          }
+        },
+        "shader": {
+          "renderID": 1
+        },
+        "textureHandler": [
+          {
+            "textureID": 3,
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "path": "UserFiles\\Textures\\Square.png",
+        "destroyed": false,
+        "isActive": true
+      },
+      {
+        "Type": "Collider2D",
+        "x": 0.0,
+        "y": 0.0,
+        "Width": 512.0,
+        "Height": 512.0,
+        "LeftCollision": true,
+        "RightCollision": true,
+        "TopCollision": true,
+        "BottomCollision": true,
+        "thisLeft": 0.0,
+        "thisRight": 0.0,
+        "thisTop": 0.0,
+        "thisBottom": 0.0,
+        "isTrigger": false,
+        "isActive": true
+      },
+      {
+        "Type": "Rigidbody2D",
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "acceleration": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "mass": 1.0,
+        "isStatic": false,
+        "Gravity": -1000.0,
+        "useGravity": false,
+        "isActive": true
+      }

@@ -21,9 +21,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class JSON {
 
@@ -45,8 +43,9 @@ public class JSON {
             })
             .create();
 
+
     public static void WriteJSON(String path, List<GameObject> sceneObjects) {
-        Thread thread = new Thread(() -> {
+        MainThread.invokeLater(() -> {
 
             try (Writer writer = Files.newBufferedWriter(Paths.get(path), StandardCharsets.UTF_8)) {
                 gson.toJson(sceneObjects, writer);
@@ -56,14 +55,6 @@ public class JSON {
                 Console.error("Scene save failed: " + e.getMessage());
             }
         });
-
-        // Catch things like StackOverflowError that wouldn't show otherwise
-        thread.setUncaughtExceptionHandler((t, e) -> {
-            Console.error("Uncaught error during scene save: " + e);
-            e.printStackTrace();
-        });
-
-        thread.start();
     }
 
     public static void LoadJSONScene(String path, Renderer renderer, Scene scene) {
@@ -125,5 +116,7 @@ public class JSON {
         });
     }
 
+    public static void UpdateGsonBuilder(){
 
+    }
 }

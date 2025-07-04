@@ -1,5 +1,7 @@
 package Engine.GUI;
 
+import CustomScripts.CameraControls;
+import Engine.Component.Camera2D;
 import Engine.Component.Collider2D;
 import Engine.Component.Transform;
 import Engine.Core.Console;
@@ -17,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static Engine.Core.Scene.renderer;
 import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 
 public class MenuBar {
@@ -38,7 +41,7 @@ public class MenuBar {
                 if(ImGui.menuItem("Load")){
                     if(scene.sceneObjects.size() == 1){
                         scene.cleanup();
-                        JSON.LoadJSONScene(String.format(String.valueOf(path)), scene.renderer, scene);
+                        JSON.LoadJSONScene(String.format(String.valueOf(path)), renderer, scene);
                     }
                     else{
                         Console.error("You must delete all game-objects to load a scene.(Excluding Main_Camera)");
@@ -49,11 +52,34 @@ public class MenuBar {
                 }
                 ImGui.endMenu();
             }
+            if (ImGui.beginMenu("Scripts")) {
+                if (ImGui.menuItem("Java Script")) {
+                    enableCreateScriptWindow = true;
+                    newFileName.set("");
+                }
+                if (ImGui.menuItem("Lua Script")) {
+                    Console.warn("Still in development");
+                }
+                ImGui.endMenu();
+            }
             if (ImGui.beginMenu("GameObjects")) {
+                if(ImGui.menuItem("2D Camera")){
+                    GameObject mainCamera = new GameObject();
+                    mainCamera.init(renderer, null);
+                    mainCamera.Name = "Main_Camera";
+                    scene.add(mainCamera);
+                    Camera2D camera = new Camera2D(scene.window.width, scene.window.height);
+                    mainCamera.AddComponent(camera);
+                    mainCamera.AddComponent(new CameraControls(mainCamera));
+                    renderer.setCamera(camera);
+                }
+                if(ImGui.menuItem("3D Camera")){
+                    Console.info("In progress");
+                }
                 if (ImGui.menuItem("Square")) {
                     Console.info("Created Square");
                     GameObject Square = new GameObject();
-                    Square.init(scene.renderer, "UserFiles\\Textures\\Square.png");
+                    Square.init(renderer, "UserFiles\\Textures\\Square.png");
                     Square.render.start();
                     Square.AddComponent(new Collider2D(Square.getComponent(Transform.class).position.x,Square.getComponent(Transform.class).position.y ,"UserFiles\\Textures\\Square.png", Square));
                     Square.Name = "Square";
@@ -63,15 +89,8 @@ public class MenuBar {
                     Console.info("Created Empty object");
                     GameObject Empty = new GameObject();
                     scene.add(Empty);
-                    Empty.init(scene.renderer, null);
+                    Empty.init(renderer, null);
                     Empty.Name = "GameObject";
-                }
-                if (ImGui.menuItem("Java Script")) {
-                    enableCreateScriptWindow = true;
-                    newFileName.set("");
-                }
-                if (ImGui.menuItem("Lua Script")) {
-                    Console.warn("Still in development");
                 }
                 ImGui.endMenu();
             }

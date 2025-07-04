@@ -3,11 +3,15 @@ package Engine.GUI;
 import Engine.Component.*;
 import Engine.Core.Console;
 import Engine.Core.GameObject;
+import Tools.JSON;
 import Tools.ScriptLoader;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import imgui.ImGui;
 import imgui.type.ImString;
 
 import java.io.File;
+import java.lang.reflect.Type;
 import java.util.*;
 
 

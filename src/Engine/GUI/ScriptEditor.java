@@ -4,7 +4,11 @@ import Engine.Component.Component;
 import Engine.Core.Console;
 import Engine.Core.GameObject;
 import Scenes.Editor;
+import Tools.JSON;
 import Tools.ScriptLoader;
+import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
+import com.google.gson.reflect.TypeToken;
 import imgui.ImGui;
 import imgui.type.ImString;
 
