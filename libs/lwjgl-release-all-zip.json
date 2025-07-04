@@ -1,0 +1,26 @@
+{
+  "build": "release",
+  "mode": "zip",
+  "selectedAddons": [
+    "steamworks4j-server",
+    "steamworks4j",
+    "lwjgl3-awt",
+    "lwjglx-debug",
+    "joml-primitives",
+    "joml"
+  ],
+  "platform": [
+    "windows"
+  ],
+  "descriptions": false,
+  "compact": false,
+  "hardcoded": false,
+  "javadoc": true,
+  "includeJSON": true,
+  "source": true,
+  "osgi": false,
+  "language": "groovy",
+  "preset": "all",
+  "version": "3.3.4",
+  "versionLatest": "3.3.6"
+}
