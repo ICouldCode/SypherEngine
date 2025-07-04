@@ -1,50 +1,60 @@
-🎮 Sypher Engine – 2D Game Engine Built with LWJGL
-Sypher Engine is a custom-built 2D game engine developed from scratch using LWJGL (Lightweight Java Game Library). It blends the flexibility of Unity's component-based architecture with Godot-style live script editing, providing a lightweight but powerful foundation for developing 2D games in Java.
+# 🎮 Sypher Engine – 2D Game Engine Built with LWJGL
 
-✨ Features
-🧱 Component-Based Architecture
-Inspired by Unity, Sypher Engine uses a modular component system for building reusable and extensible game behavior.
+Sypher Engine is a custom-built 2D game engine developed entirely from scratch using LWJGL (Lightweight Java Game Library).  
+It combines the modularity and flexibility of Unity’s component-based architecture with the seamless live script editing experience inspired by Godot.  
 
-🖼️ Custom 2D Rendering Engine
-Built entirely on OpenGL through LWJGL, optimized for sprites, tiles, and 2D effects.
+Designed to provide a lightweight yet powerful foundation for creating 2D games in Java, Sypher Engine focuses on real-time iteration and ease of development.
 
-🧠 Dynamic Script Loading
-Load and reload Java-based scripts at runtime, enabling live game logic updates without restarting the engine.
+---
 
-📝 Embedded Script Editor
-Edit game scripts directly within the editor UI, similar to Godot—no need to switch to an external IDE.
+## ✨ Features
 
-🧪 In Progress
-🔇 Audio System (Not Yet Implemented)
-Sound and music playback features are planned for a future release.
+### 🧱 Component-Based Architecture  
+Inspired by Unity, Sypher Engine uses a modular system to build reusable, extensible game behavior through components.
 
-💾 Dynamic Scene & Game Saving
-In development: serialization and saving/loading of scenes, game state, and project data.
+### 🖼️ Custom 2D Rendering Engine  
+A fully OpenGL-powered rendering pipeline optimized for sprites, tilemaps, and 2D visual effects.
 
-🎮 Play Mode / Editor Mode States
-Separating runtime and edit-time behaviors to allow toggling between in-editor testing and scene editing.
+### 🧠 Dynamic Script Loading  
+Java-based game logic scripts can be loaded and reloaded at runtime, enabling live updates without restarting the engine.
 
-📦 Texture Handling
-Efficient texture loading and management system with support for atlases and OpenGL texture binding.
+### 📝 Embedded Script Editor  
+Edit your game scripts directly inside the engine’s editor UI—no need to switch back and forth to external IDEs.
 
-🧩 Scene and Entity Management
-Hierarchical scene system with full support for nested entities and runtime editing.
+---
 
-🎨 Editor UX Enhancements
-Current tools are functional; visual inspectors, drag-and-drop scene editing, and live previews are in development.
+## 🧪 In Progress
 
-📦 Prefab and Asset System
-Planned for easy reuse and instantiation of game objects and assets.
+- 🔇 Audio System (Sound & music playback planned for upcoming releases)  
+- 💾 Dynamic Scene & Game Saving (Serialization and state management underway)  
+- 🎮 Play Mode / Editor Mode (Switch seamlessly between editing scenes and running the game)  
+- 📦 Texture Handling (Efficient loading and management including atlases and OpenGL bindings)  
+- 🧩 Scene & Entity Management (Hierarchical scene graph with nested entities and live editing)  
+- 🎨 Editor UX Improvements (Visual inspectors, drag-and-drop scene editing, live previews in development)  
+- 📦 Prefab & Asset System (Reusable game objects and asset management coming soon)
 
-🛠️ Built With
-Java 17+
+---
 
-LWJGL 3
+## 🛠️ Built With
 
-OpenGL (2D pipeline)
+- Java 17+  
+- LWJGL 3 (Lightweight Java Game Library)  
+- OpenGL (2D rendering pipeline)  
+- Custom Script Manager  
+- (Planned) ImGui integration for advanced editor tools
 
-Custom script manager
+---
 
-(Planned) ImGui  for advanced editor tooling
+## 🚀 Showcase
 
-🚀 Getting Started
+Sypher Engine is a work-in-progress project showcasing a fresh approach to Java-based 2D game development with an emphasis on:
+
+- Developer productivity through live script editing  
+- Lightweight core architecture with extensibility  
+- Smooth workflow combining editor and play modes  
+
+Explore the code, experiment with components, and follow along as this engine evolves into a robust platform for creating 2D games.
+
+---
+
+*Feel free to contribute ideas or improvements as the project progresses!*
