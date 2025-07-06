@@ -62,7 +62,7 @@ public class MenuBar {
                 }
                 ImGui.endMenu();
             }
-            if (ImGui.beginMenu("GameObjects")) {
+            if (ImGui.beginMenu("2DGameObjects")) {
                 if(ImGui.menuItem("2D Camera")){
                     GameObject mainCamera = new GameObject();
                     mainCamera.init(renderer, null);
@@ -72,9 +72,6 @@ public class MenuBar {
                     mainCamera.AddComponent(camera);
                     mainCamera.AddComponent(new CameraControls(mainCamera));
                     renderer.setCamera(camera);
-                }
-                if(ImGui.menuItem("3D Camera")){
-                    Console.info("In progress");
                 }
                 if (ImGui.menuItem("Square")) {
                     Console.info("Created Square");

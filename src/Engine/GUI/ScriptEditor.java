@@ -4,6 +4,7 @@ import Engine.Component.Component;
 import Engine.Core.Console;
 import Engine.Core.GameObject;
 import Scenes.Editor;
+import Tools.ComponentRegistration;
 import Tools.JSON;
 import Tools.ScriptLoader;
 import com.google.gson.GsonBuilder;
@@ -62,6 +63,11 @@ public class ScriptEditor {
                 // 3. Compile and load class
                 String engineClasspath = ScriptLoader.buildClasspath("out/production/SypherEngine/", "libs/");
                 Class<?> compiledClass = ScriptLoader.compileAndReturnClass(currentScriptPath, className, engineClasspath);
+
+                if(Component.class.isAssignableFrom(compiledClass)){
+                    ComponentRegistration.register((Class<? extends Component>)compiledClass);
+                    Console.info("Registered component " + compiledClass.getSimpleName());
+                }
 
                 if (compiledClass == null) {
                     Console.error("Failed to compile and load class: " + className);
