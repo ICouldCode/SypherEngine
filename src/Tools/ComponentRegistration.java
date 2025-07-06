@@ -12,6 +12,7 @@ public class ComponentRegistration {
     public static void register(Class<? extends Component> clas){
         if(!RegisteredComponents.contains(clas)){
             RegisteredComponents.add(clas);
+            JSON.gson = JSON.ReCompileGson();
         }
     }
 

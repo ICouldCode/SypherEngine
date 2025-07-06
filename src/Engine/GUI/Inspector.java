@@ -3,6 +3,7 @@ package Engine.GUI;
 import Engine.Component.*;
 import Engine.Core.Console;
 import Engine.Core.GameObject;
+import Tools.ComponentRegistration;
 import Tools.JSON;
 import Tools.ScriptLoader;
 import com.google.gson.*;
@@ -100,6 +101,8 @@ public class Inspector {
                                     );
                                     Compiled.put(file, "Compiled");
 
+                                    ComponentRegistration.register(comp.getClass());
+
                                     CreatedComponents.add(comp.getClass());
                                     CachedComponents.put(file, comp);
                                 }
@@ -115,6 +118,10 @@ public class Inspector {
                                         Component comp = (Component) Objects.requireNonNull(
                                                 ScriptLoader.compileAndLoad(file.getAbsolutePath(), className, new Class[]{GameObject.class}, new GameObject[]{selected})
                                         );
+
+                                        //safe register if somehow not registered
+                                        ComponentRegistration.register(comp.getClass());
+
                                         instance = comp;
                                     }
 

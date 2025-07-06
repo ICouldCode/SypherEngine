@@ -1,10 +1,7 @@
 package Tools;
 
 import CustomScripts.CameraControls;
-import Engine.Component.Camera2D;
-import Engine.Component.Component;
-import Engine.Component.RenderComponent;
-import Engine.Component.Transform;
+import Engine.Component.*;
 import Engine.Core.Console;
 import Engine.Core.GameObject;
 import Engine.Core.Renderer;
@@ -25,23 +22,44 @@ import java.util.*;
 
 public class JSON {
 
-    private static Factory factory = new Factory();
+    public static Gson gson = ReCompileGson();
 
-    private static Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .registerTypeAdapterFactory(factory.factory)
-            .addSerializationExclusionStrategy(new ExclusionStrategy() {
-                @Override
-                public boolean shouldSkipField(FieldAttributes f) {
-                    return f.getDeclaredType() == GameObject.class;
-                }
+    public static Gson ReCompileGson(){
 
-                @Override
-                public boolean shouldSkipClass(Class<?> clazz) {
-                    return false;
-                }
-            })
-            .create();
+        GsonBuilder builder = new GsonBuilder();
+
+        RuntimeTypeAdapterFactory<Component> factory =
+                RuntimeTypeAdapterFactory.of(Component.class, "Type")
+                        //Base Engine
+                        .registerSubtype(Transform.class, "Transform")
+                        .registerSubtype(Rigidbody2D.class, "Rigidbody2D")
+                        .registerSubtype(Collider2D.class, "Collider2D")
+                        .registerSubtype(Camera2D.class, "Camera2D")
+                        .registerSubtype(RenderComponent.class, "Render")
+                        .registerSubtype(CameraControls.class, "CameraControls")
+                ;
+
+        for (Class<? extends Component> compClass : ComponentRegistration.getRegisteredComponents()) {
+            factory.registerSubtype(compClass, compClass.getSimpleName());
+        }
+
+        builder.setPrettyPrinting();
+        builder.registerTypeAdapterFactory(factory);
+        builder.addSerializationExclusionStrategy(new ExclusionStrategy() {
+            @Override
+            public boolean shouldSkipField(FieldAttributes f) {
+                return f.getDeclaredType() == GameObject.class;
+            }
+
+            @Override
+            public boolean shouldSkipClass(Class<?> clazz) {
+                return false;
+            }
+        });
+
+        Gson g = builder.create();
+        return g;
+    }
 
 
     public static void WriteJSON(String path, List<GameObject> sceneObjects) {
